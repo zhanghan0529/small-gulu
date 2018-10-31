@@ -1,8 +1,7 @@
 <template>
-  <button class='g-button' :class="{[`content-${isPosition}`]:true}">
-    <svg v-if='icon' class="icon" aria-hidden="true">
-      <use :xlink:href="`#i-${icon}`"></use>
-    </svg>
+  <button class='g-button' :class="{[`content-${isPosition}`]:true}" @click=$emit('click')>
+    <g-icon v-if='icon&&!loading' class="icon" aria-hidden="true" :name='icon'></g-icon>
+    <g-icon v-if=loading class="icon icon-loading" aria-hidden="true" name='loading'></g-icon>
     <div class='content'>
       <slot></slot>
     </div>
@@ -10,6 +9,14 @@
 </template>
 
 <style lang='scss'>
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .g-button {
   color: var(--button-color);
   font-size: var(--button-font-size);
@@ -41,6 +48,9 @@
   > .content {
     order: 2;
   }
+  > .icon-loading {
+    animation: loading 1s infinite linear;
+  }
   &.content-right {
     .content {
       order: 1;
@@ -58,6 +68,10 @@ export default {
   // props: ['icon', 'isPosition'],
   props: {
     icon: {},
+    loading: {
+      type: Boolean,
+      default: false
+    },
     isPosition: {
       type: String,
       default: 'left',
@@ -69,9 +83,6 @@ export default {
         }
       }
     }
-  },
-  created(){
-    console.log([`content-${this.isPosition}`])
   }
 }
 </script>
