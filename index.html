@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Button</title>
+    <style lang="">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            --button-color: #333;
+            --button-font-size: 14px;
+            --button-border: 1px solid var(--button-color);
+            --button-border-radius: 4px;
+            --button-height: 32px;
+        }
+    </style>
+    <style>
+        #app {
+            padding: 20px;
+        }
+
+
+    </style>
 </head>
+
 <body>
     <div id="app">
-        {{message}}
-        <g-button></g-button>
+        <g-button icon='setting' is-position='left'>设置</g-button>
+        <g-button icon='setting' is-position='right'>设置</g-button>
+        <g-button >设置</g-button>
     </div>
+    <script src="//at.alicdn.com/t/font_895888_qei0e6y4xgm.js"></script>
     <script src='./src/app.js'></script>
 </body>
+
 </html>
