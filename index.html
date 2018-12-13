@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Button</title>
+    <title>small-gulu</title>
     <style lang="">
         * {
             padding: 0;
@@ -22,20 +21,34 @@
         }
     </style>
     <style>
-        #app {
-            padding: 20px;
-        }
+        /*#app {*/
+        /*padding: 20px;*/
+        /*}*/
     </style>
 </head>
 
 <body>
-    <div id="app">
-        <g-button is-position='left' :loading=loading @click='loading = !loading'>设置</g-button>
-        <g-button icon='setting' is-position='right' :loading=loading1 @click='loading1 = !loading1'>设置</g-button>
-        <g-button icon='setting' :loading=loading2 @click='loading2 = !loading2'>设置</g-button>
-    </div>
-    <script src="//at.alicdn.com/t/font_895888_qei0e6y4xgm.js"></script>
-    <script src='./src/app.js'></script>
+<div id="app">
+    <!--<g-button is-position='left' :loading=loading @click='loading = !loading'>设置</g-button>-->
+    <!--<g-button icon='setting' is-position='right' :loading=loading1 @click='loading1 = !loading1'>设置</g-button>-->
+    <!--<g-button icon='setting' :loading=loading2 @click='loading2 = !loading2'>设置</g-button>-->
+
+    <!--<g-tabs :selected="selectedTab" @update:selected="selectedTab=$event">-->
+    <g-tabs :selected.sync="selectedTab">
+        <g-tabs-head>
+            <g-tabs-item name="1" :disabled='true'>123</g-tabs-item>
+            <g-tabs-item name="2">456</g-tabs-item>
+            <g-tabs-item name="3">1321312312</g-tabs-item>
+        </g-tabs-head>
+        <g-tabs-body>
+            <g-tabs-pane name="1">123</g-tabs-pane>
+            <g-tabs-pane name="2">456</g-tabs-pane>
+            <g-tabs-pane name="3">789</g-tabs-pane>
+        </g-tabs-body>
+    </g-tabs>
+</div>
+<!--<script src="//at.alicdn.com/t/font_895888_qei0e6y4xgm.js"></script>-->
+<script src='./src/app.js'></script>
 </body>
 
 </html>
